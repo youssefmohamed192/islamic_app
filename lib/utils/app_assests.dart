@@ -1,7 +1,7 @@
 abstract class AppAssets{
   static const imagePath = "assets/images/";
-  static const splash = "${imagePath}light_bg.png";
-  static const darkSplash = "${imagePath}dark_bg.png";
+  static const backgroundImage = "${imagePath}light_bg.png";
+  static const darkBackgroundImage = "${imagePath}dark_bg.png";
   static const iconHadeth = "${imagePath}icon_hadeth.png";
   static const iconQuran = "${imagePath}icon_quran.png";
   static const iconRadio = "${imagePath}icon_radio.png";
