@@ -8,7 +8,8 @@ abstract class AppTheme{
       color: AppColors.transparent,
       elevation: 0,
       centerTitle: true,
-      titleTextStyle: TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold, fontSize: 30)
+      titleTextStyle: TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold, fontSize: 30),
+      iconTheme: IconThemeData(color: AppColors.accent)
     ),
     textTheme: const TextTheme(
       titleLarge: TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold, fontSize: 30),
@@ -16,6 +17,10 @@ abstract class AppTheme{
       titleSmall: TextStyle(color: AppColors.accent, fontWeight: FontWeight.w400, fontSize: 25),
       bodySmall: TextStyle(color: AppColors.accent, fontWeight: FontWeight.w400, fontSize: 20)
     ),
+    dividerTheme: const DividerThemeData(
+      color: AppColors.primary,
+      thickness: 3
+    )
     // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     //   backgroundColor: AppColors.primary,
     //   selectedItemColor: AppColors.accent,
