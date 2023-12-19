@@ -15,7 +15,7 @@ class AhadethTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Expanded(flex: 3, child: Image.asset(AppAssets.quranLogo)),
+        Expanded(flex: 3, child: Image.asset(AppAssets.hadethLogo)),
         const Divider(),
         Text("Hadeth Name",
             textAlign: TextAlign.center,
