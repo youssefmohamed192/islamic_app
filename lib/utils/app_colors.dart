@@ -6,4 +6,5 @@ abstract class AppColors{
   static const white = Colors.white;
   static const lessWhite = Color(0xffF8F8F8);
   static const transparent = Colors.transparent;
+  static const counterBoxColor = Color(0xffc8b6a4);
 }

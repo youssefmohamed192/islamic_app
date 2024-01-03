@@ -9,4 +9,6 @@ abstract class AppAssets{
   static const quranLogo = "${imagePath}quran_logo.png";
   static const hadethLogo = "${imagePath}hadeth_logo.png";
   static const radioLogo = "${imagePath}radio_image.png";
+  static const sebhaHead = "${imagePath}head_sebha_logo.png";
+  static const sebhaBody = "${imagePath}body_sebha_logo.png";
 }
