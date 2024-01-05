@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamic_app/model/details_screen_args.dart';
 import 'package:islamic_app/ui/screens/details_screen/details_screen.dart';
 import 'package:islamic_app/utils/app_assets.dart';
-import 'package:islamic_app/utils/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatelessWidget {
 
@@ -17,7 +17,7 @@ class AhadethTab extends StatelessWidget {
       children: [
         Expanded(flex: 3, child: Image.asset(AppAssets.hadethLogo)),
         const Divider(),
-        Text("Hadeth Name",
+        Text(AppLocalizations.of(context)!.hadithName,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium),
         const Divider(),

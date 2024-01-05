@@ -1,0 +1,16 @@
+{
+  "islami": "اسلامى",
+  "settings": "الإعدادات",
+  "darkMode": "الوضع المظلم",
+  "suraName": "اسم السورة",
+  "arabic": "العربية",
+  "hadithName" : "اسم الحديث",
+  "quran" : "القرآن",
+  "ahadith" : "الأحاديث",
+  "sebha" : "التسبيح",
+  "radio" : "الراديو",
+  "numberOfPraises" : "عدد التسبيح",
+  "subhanAllah" : "سبحان الله",
+  "allahuAkbar" : "الله أكبر",
+  "alhamdulillah" : "الحمد لله"
+}

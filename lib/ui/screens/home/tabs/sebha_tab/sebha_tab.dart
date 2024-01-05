@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/providers/settings_provider.dart';
 import 'package:islamic_app/utils/app_assets.dart';
 import 'package:islamic_app/utils/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -11,11 +14,18 @@ class _SebhaTabState extends State<SebhaTab> {
   double angle = 0;
   int counter = 0;
   int curIndex = 0;
-  List<String> azkar = ["Subhan Allah", "Allahu akbar", "Alhamdulillah"];
+  late SettingsProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
+    List<String> azkar = [
+      AppLocalizations.of(context)!.subhanAllah,
+      AppLocalizations.of(context)!.allahuAkbar,
+      AppLocalizations.of(context)!.alhamdulillah
+    ];
     var size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Container(
         width: size.width,
@@ -44,7 +54,9 @@ class _SebhaTabState extends State<SebhaTab> {
                       ),
                     )),
                 Container(
-                  margin: EdgeInsets.only(left: size.width * .24),
+                  margin: provider.curLocale == "en"
+                      ? EdgeInsets.only(left: size.width * .24)
+                      : EdgeInsets.only(right: size.width * .09),
                   child: Image.asset(
                     AppAssets.sebhaHead,
                     height: size.height * .12,
@@ -56,7 +68,7 @@ class _SebhaTabState extends State<SebhaTab> {
               height: size.height * .04,
             ),
             Text(
-              "Number of praises",
+              AppLocalizations.of(context)!.numberOfPraises,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             SizedBox(
