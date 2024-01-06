@@ -46,10 +46,13 @@ class _SebhaTabState extends State<SebhaTab> {
                           onTap: () {
                             clickOnImage();
                           },
-                          child: Image.asset(
-                            AppAssets.sebhaBody,
-                            height: size.height * .26,
-                          ),
+                          child: provider.isLightMode()
+                              ? Image.asset(
+                                  AppAssets.sebhaBody,
+                                  height: size.height * .26,
+                                )
+                              : Image.asset(AppAssets.sebhaBodyDark,
+                                  height: size.height * .26),
                         ),
                       ),
                     )),
@@ -57,10 +60,13 @@ class _SebhaTabState extends State<SebhaTab> {
                   margin: provider.curLocale == "en"
                       ? EdgeInsets.only(left: size.width * .24)
                       : EdgeInsets.only(right: size.width * .09),
-                  child: Image.asset(
-                    AppAssets.sebhaHead,
-                    height: size.height * .12,
-                  ),
+                  child: provider.isLightMode()
+                      ? Image.asset(
+                          AppAssets.sebhaHead,
+                          height: size.height * .12,
+                        )
+                      : Image.asset(AppAssets.sebhaHeadDark,
+                          height: size.height * .12),
                 )
               ],
             ),
@@ -81,10 +87,17 @@ class _SebhaTabState extends State<SebhaTab> {
                 width: size.width * .16,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(26),
-                    color: AppColors.counterBoxColor),
+                    color: provider.isLightMode()
+                        ? AppColors.counterBoxColor
+                        : AppColors.darkPrimary),
                 child: Text(
                   "$counter",
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: provider.isLightMode()
+                      ? Theme.of(context).textTheme.titleSmall
+                      : Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: AppColors.white),
                   textAlign: TextAlign.center,
                 )),
             SizedBox(
@@ -94,13 +107,13 @@ class _SebhaTabState extends State<SebhaTab> {
                 padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(36),
-                    color: AppColors.primary),
+                    color: provider.isLightMode() ? AppColors.primary : AppColors.darkAccent),
                 child: Text(
                   azkar[curIndex],
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
-                      .copyWith(color: AppColors.white),
+                      .copyWith(color: provider.isLightMode() ? AppColors.white : AppColors.darkPrimary),
                   textAlign: TextAlign.center,
                 )),
           ],

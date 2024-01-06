@@ -26,27 +26,36 @@ class _SettingsTabState extends State<SettingsTab> {
         children: [
           Text(
             AppLocalizations.of(context)!.settings,
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                fontWeight: FontWeight.bold,
+                color: provider.isLightMode()
+                    ? AppColors.accent
+                    : AppColors.white),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: buildSettingsRow(AppLocalizations.of(context)!.arabic, context, arSwitch, (newValue) {
+            child: buildSettingsRow(
+                AppLocalizations.of(context)!.arabic, context, arSwitch,
+                (newValue) {
               arSwitch = newValue;
-               if(arSwitch){
-                 provider.setCurLocale("ar");
-               }else{
-                 provider.setCurLocale("en");
-               }
+              if (arSwitch) {
+                provider.setCurLocale("ar");
+              } else {
+                provider.setCurLocale("en");
+              }
             }),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: buildSettingsRow(AppLocalizations.of(context)!.darkMode, context, darkSwitch, (newValue) {
+            child: buildSettingsRow(
+                AppLocalizations.of(context)!.darkMode, context, darkSwitch,
+                (newValue) {
               darkSwitch = newValue;
-              setState(() {});
+              if (darkSwitch) {
+                provider.setCurMode(ThemeMode.dark);
+              } else {
+                provider.setCurMode(ThemeMode.light);
+              }
             }),
           )
         ],
@@ -66,7 +75,7 @@ class _SettingsTabState extends State<SettingsTab> {
         Switch(
           value: switchBool,
           onChanged: onChange,
-          activeColor: AppColors.primary,
+          activeColor: provider.isLightMode() ? AppColors.primary : AppColors.darkAccent,
         )
       ],
     );
